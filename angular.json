@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -93,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +126,82 @@
           }
         }
       }
-    }},
+    },
+    "ng8-material": {
+      "projectType": "library",
+      "root": "projects/ng8-material",
+      "sourceRoot": "projects/ng8-material/src",
+      "prefix": "ng8-material",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng8-material/tsconfig.lib.json",
+            "project": "projects/ng8-material/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng8-material/src/test.ts",
+            "tsConfig": "projects/ng8-material/tsconfig.spec.json",
+            "karmaConfig": "projects/ng8-material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng8-material/tsconfig.lib.json",
+              "projects/ng8-material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ng8-common": {
+      "projectType": "library",
+      "root": "projects/ng8-common",
+      "sourceRoot": "projects/ng8-common/src",
+      "prefix": "ng8-common",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng8-common/tsconfig.lib.json",
+            "project": "projects/ng8-common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng8-common/src/test.ts",
+            "tsConfig": "projects/ng8-common/tsconfig.spec.json",
+            "karmaConfig": "projects/ng8-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng8-common/tsconfig.lib.json",
+              "projects/ng8-common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "name-crafter"
 }
